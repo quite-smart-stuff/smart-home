@@ -2,14 +2,15 @@ import RPi.GPIO as GPIO
 
 GPIO.setwarnings(False)
 
-def ledoff(pin):
+def ledoff1(pin):
         GPIO.output(pin,GPIO.LOW)
+        print("led 1 off")
         return
 
 GPIO.setmode(GPIO.BOARD)
 
-GPIO.setup(37, GPIO.OUT)
+GPIO.setup(15, GPIO.OUT)
 
-ledoff(37)
+ledoff1(15)
 
-#GPIO.cleanup()
+GPIO.cleanup()

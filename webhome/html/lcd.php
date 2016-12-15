@@ -1,7 +1,7 @@
 <html>
 <body>
 <?php
-system("sudo python ../ledblink.py");
+system("sudo python ../lcd.py");
 ?>
 <a href="webhome.php">back</a>
 </body>

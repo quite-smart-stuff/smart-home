@@ -15,7 +15,7 @@ Control Home System
 </p>
 </font>
 
-<form>
+<form method="post">
 <!-- TEST for LCD Display -->
 <button type="button" style="width:250px; height:150px">
 <font face="verdana" size="6" color="black">
@@ -60,18 +60,13 @@ HEAT1 BLINK
 -->
 <br /><br />
 <!-- TO REMOVE "TEMP R1" and TO STAY ONLY LABEL, AUTOMATIC RECEIVEING TEMPERATURE -->
-<button type="button" onclick="parent.location='temp_room1.php'" style="width:250px; height:150px">
+<button type="submit" name="TEMP_Read" style="width:250px; height:150px">
 <font face="verdana" size="6" color="black">
 <b>
-TEMP_R1
+TEMP_Read
 </b>
 </font>
 </button>
-<input type="text" value="Room 1 temperature (0x48): " disabled="disabled" />
-<button type="button" onclick="parent.location='fanoff1.php'" style="width:80px">MANUAL FAN 1 OFF</button>
-<button type="button" onclick="parent.location='fanauto1.php'" style="width:80px">AUTOMATIC FAN 1 ON/OFF</button>
-<br /><br />
-
 
 </form>
 
@@ -80,17 +75,19 @@ if (isset($_POST['LCD_TEST']))
 {
 system("sudo python ../lcd.py");
 }
-if (isset($_POST['TEMP_R1']))
+if (isset($_POST['TEMP_Read']))
 {
-system("sudo python ../tmp_0x48_0x90.py");
+exec("sudo python ../tmp_0x48_0x90.py");
+echo " it is working";
+var_dump(exec("sudo python ../tmp_0x48_0x90.py"));
 }
 if (isset($_POST['HEAT1_ON']))
 {
-system("sudo python ../ledon1.py");
+exec("sudo python ../ledon1.py");
 }
 if (isset($_POST['HEAT1_OFF']))
 {
-system("sudo python ../ledoff1.py");
+exec("sudo python ../ledoff1.py");
 }
 ?>
 

@@ -19,7 +19,7 @@
 	{	
 		exec('python sensor.py', $outputTMP);
 		echo("<pre>");
-		var_dump($outputTMP);
+        print_r($outputTMP);
 		echo("<pre>");
 	}
 
